@@ -52,3 +52,14 @@ for i in `seq 1 30`; do METHOD=buffering SIZE=100000 ./run & done
 
 ![memory](mem.PNG)
 ![throughput](throughput.PNG)
+
+### usando directamente mongodb (sin trabajo de negocio)
+
+![mongodb](mongo.PNG)
+
+### comparando escritura raw con serialización vía streaming
+
+![raw_vs_stream_transactiontime](raw_vs_stream_transactiontime.PNG)
+![raw_vs_stream_throughput](raw_vs_stream_throughput.PNG)
+![raw_vs_stream_slow](raw_vs_stream_slow.PNG)
+![raw_vs_stream_mem](raw_vs_stream_mem.PNG)

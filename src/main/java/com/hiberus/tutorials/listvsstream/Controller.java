@@ -1,5 +1,6 @@
 package com.hiberus.tutorials.listvsstream;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -14,6 +15,21 @@ public class Controller {
 
     @Autowired
     private Backend backend;
+
+    @RequestMapping("/raw")
+    public void raw(
+            @RequestParam(value = "from", required = true) int from,
+            @RequestParam(value = "to", required = true) int to,
+            java.io.Writer w
+    ) throws IOException {
+        w.write('[');
+        while (from <= to) {
+            w.write('"');
+            w.write(output(resplit(rejoin(resplit(rejoin(resplit(rejoin(backend.create(from++)))))))));
+            w.write("\",");
+        }
+        w.write(']');
+    }
 
     @RequestMapping("/streaming")
     public Stream<String> streaming(

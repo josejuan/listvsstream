@@ -18,7 +18,7 @@ public class Backend {
         return "0000000".substring(0, 7 - s.length()) + s;
     }
 
-    private Tuple<String, String> create(int i) {
+    Tuple<String, String> create(int i) {
         return new Tuple<>(int2pk(i), Long.toString(rg.nextLong()));
     }
 
